@@ -12,3 +12,4 @@ def test_req():
     res = requests.get(f'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={ID}&corpsecret={SECRET}')
     access_token = res.json()['access_token']
     print(res.json(),'\n', access_token)
+    print(1111111111111111111111111111111111111111)
