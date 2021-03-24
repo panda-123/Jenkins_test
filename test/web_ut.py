@@ -16,6 +16,7 @@ class ISelenium(unittest.TestCase):
     def get_config(self):
         config = configparser.ConfigParser()
         config.read(os.path.join(os.environ['HOME'], 'iselenium.ini'))
+        # config.read(r'C:\Users\isuser\iselenium.ini')
         return config
 
     def tearDown(self):
@@ -45,6 +46,7 @@ class ISelenium(unittest.TestCase):
                                            desired_capabilities=DesiredCapabilities.CHROME)
         else:
             print('使用有界面Chrome浏览器运行')
+            chrome_options.add_argument("--no-sandbox")
             self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
                                            options=chrome_options)
 
