@@ -35,6 +35,7 @@ class ISelenium(unittest.TestCase):
         if browser is not None and browser.lower() == 'no_gui':
             print('使用无界面方式运行')
             chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--no-sandbox")
             self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
                                            options=chrome_options)
         elif browser is not None and browser.lower() == 'remote':
