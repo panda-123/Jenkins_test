@@ -33,10 +33,13 @@ class ISelenium(unittest.TestCase):
             print('没有配置环境变量 browser, 按照默认有界面方式运行自动化测试')
 
         chrome_options = Options()
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--disable-dev-shm-usage')
         if browser is not None and browser.lower() == 'no_gui':
             print('使用无界面方式运行')
             chrome_options.add_argument("--headless")
-            chrome_options.add_argument("--no-sandbox")
+            # chrome_options.add_argument("--no-sandbox")
             self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
                                            options=chrome_options)
         elif browser is not None and browser.lower() == 'remote':
