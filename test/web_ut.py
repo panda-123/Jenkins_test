@@ -50,7 +50,6 @@ class ISelenium(unittest.TestCase):
                                            desired_capabilities=DesiredCapabilities.CHROME)
         else:
             print('使用有界面Chrome浏览器运行')
-            chrome_options.add_argument("--no-sandbox")
             self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
                                            options=chrome_options)
 
