@@ -36,7 +36,8 @@ class ISelenium(unittest.TestCase):
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-dev-shm-usage')
-        if browser is not None and browser.lower() == 'no_gui':
+        # if browser is not None and browser.lower() == 'no_gui':
+        if browser is not None and browser.lower() == 'true':
             print('使用无界面方式运行')
             chrome_options.add_argument("--headless")
             # chrome_options.add_argument("--no-sandbox")
